@@ -1,0 +1,106 @@
+<app-header></app-header>
+
+<!-- *****************************************************************************************************************
+ BLUE WRAP
+ ***************************************************************************************************************** -->
+ <div id="blue">
+  <div class="container">
+      <div class="row">
+          <h3>Contato.</h3>
+      </div>
+      <!-- /row -->
+  </div>
+  <!-- /container -->
+</div><!-- /blue -->
+
+<!-- *****************************************************************************************************************
+CONTACT WRAP
+***************************************************************************************************************** -->
+
+<!--<div id="contactwrap"></div>-->
+<div id="map" style="height: 400px;"></div>
+
+<!-- *****************************************************************************************************************
+CONTACT FORMS
+***************************************************************************************************************** -->
+
+<div class="container mtb">
+  <div class="row">
+      <div class="col-lg-8">
+          <h4>Entre em contato</h4>
+
+          <div class="hline"></div>
+          <p>Caso você tenha alguma dúvida ou queira saber mais envie-nos um email.</p>
+          <p>É rápido e fácil, basta você preencher os campos abaixo e clicar em enviar.</p>
+
+          <form action="/contato" role="form" method="post">
+              <div class="form-group">
+                  <label for="InputName1">Seu nome</label>
+                  <input type="text" class="form-control" name="nome">
+              </div>
+              <div class="form-group">
+                  <label for="InputEmail1">Email</label>
+                  <input type="email" class="form-control" name="email">
+              </div>
+              <div class="form-group">
+                  <label for="InputSubject1">Assunto</label>
+                  <input type="text" class="form-control" name="assunto">
+              </div>
+              <div class="form-group">
+                  <label for="message1">Mensagem</label>
+                  <textarea class="form-control" rows="3" name="mensagem"></textarea>
+              </div>
+              <button type="submit" class="btn btn-theme" ng-disabled="true">Enviar</button>
+          </form>
+      </div>
+      <! --/col-lg-8 -->
+
+      <div class="col-lg-4">
+          <h4>Nosso endereço</h4>
+
+          <div class="hline"></div>
+          <h4>
+              Rua Ipanema, 623,<br/>
+              Jardim Satélite, São José dos Campos,<br/>
+              SP, Brasil.<br/>
+          </h4>
+
+          <h4>
+              Email: contato@cemoinhodevento.com<br/>
+              Tel: +12 3028-8008
+          </h4>
+      </div>
+  </div>
+  <! --/row -->
+</div><! --/container -->
+
+<script>
+  var map;
+
+  function initMap() {
+    var cairo = {lat: -23.228228, lng: -45.8816294};
+
+    var map = new google.maps.Map(document.getElementById('map'), {
+      scaleControl: true,
+      center: cairo,
+      zoom: 17
+    });
+
+    var infowindow = new google.maps.InfoWindow;
+    infowindow.setContent('<b>Centro Educacional Moinho de Vento</b>' +
+      '<p align="center"><img src="img/cemoinhodeventologo.jpg" style="width: 120px; height: 100px;"/></p>' +
+      '<p>Rua Ipanema, 623 - Jardim Satélite</p>' +
+      '<p>São José dos Campos</p>');
+
+    var marker = new google.maps.Marker({map: map, position: cairo});
+    marker.addListener('click', function() {
+      infowindow.open(map, marker);
+    });
+
+  }
+
+  initMap();
+
+</script>
+
+<app-footer></app-footer>

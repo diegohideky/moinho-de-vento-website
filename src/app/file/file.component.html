@@ -1,0 +1,37 @@
+<app-header></app-header>
+
+<div id="blue">
+  <div class="container">
+      <div class="row">
+          <h3>Arquivos.</h3>
+      </div><!-- /row -->
+  </div> <!-- /container -->
+</div><!-- /blue -->
+
+<div class="container mtb">
+  <div class="row">
+      <div class="col-md-4" *ngFor="let folder of folders">
+          <div class="panel panel-primary">
+              <div class="panel-heading">
+                  <h3 class="panel-title">{{folder.title}}</h3>
+              </div>
+              <div class="panel-body">
+                  <table class="table table-striped">
+                      <tbody>
+                          <tr *ngFor="let file of folder.files">
+                              <td><h4>{{file.title}}</h4></td>
+                              <td>
+                                  <a href="{{file.link}}" class="btn btn-sm btn-primary" target="_blank">
+                                      <i class="fa fa-eye"></i> Visualizar
+                                  </a>
+                              </td>
+                          </tr>
+                      </tbody>
+                  </table>
+              </div>
+          </div>
+      </div>
+</div>
+</div><! --/container -->
+
+<app-footer></app-footer>
